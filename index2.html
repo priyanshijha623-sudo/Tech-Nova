@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoltEdge Electronics | Smart Tech for Everyday Performance</title>
+  <meta name="description" content="Shop premium smartphones, laptops, tablets, smart home devices, audio gear, gaming accessories, and wearable technology built for performance, reliability, and value.">
+  <style>
+    :root {
+      --ink: #121826;
+      --muted: #5b6577;
+      --line: #dbe1ea;
+      --panel: #f7f9fc;
+      --accent: #0f7b8f;
+      --accent-dark: #095464;
+      --warm: #f2a541;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    header,
+    section,
+    footer {
+      padding: 64px 7%;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      color: var(--white);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(8, 13, 24, 0.92) 0%, rgba(8, 13, 24, 0.68) 45%, rgba(8, 13, 24, 0.22) 100%),
+        linear-gradient(0deg, rgba(8, 13, 24, 0.78) 0%, rgba(8, 13, 24, 0.08) 38%);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=85") center/cover;
+    }
+
+    .site-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 7%;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      box-shadow: 0 1px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding-top: 54px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--warm);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(2.4rem, 6vw, 5.2rem);
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3vw, 3rem);
+    }
+
+    h3 {
+      font-size: 1.18rem;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #eef4f7;
+      font-size: 1.22rem;
+    }
+
+    .offer-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .offer-strip li {
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 999px;
+      padding: 8px 13px;
+      color: #f5fbff;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.92rem;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+
+    .phone-showcase {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 860px;
+      margin-top: 44px;
+    }
+
+    .phone-tile {
+      min-height: 152px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+    }
+
+    .phone-tile img {
+      display: block;
+      width: 100%;
+      height: 118px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .phone-tile p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 6px;
+      background: var(--warm);
+      color: #1e1606;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .btn.secondary {
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      background: transparent;
+      color: var(--white);
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--white);
+    }
+
+    .product-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .product-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: var(--panel);
+    }
+
+    .product-card .card-content {
+      padding: 24px;
+    }
+
+    .band {
+      background: var(--panel);
+    }
+
+    .value {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: var(--white);
+      color: var(--muted);
+    }
+
+    .promo {
+      background: var(--accent-dark);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .promo p {
+      max-width: 820px;
+      margin: 0 auto 22px;
+      color: #e4f3f6;
+      font-size: 1.1rem;
+    }
+
+    .promo-media {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 18px;
+      margin: 34px auto 0;
+      max-width: 1180px;
+      text-align: left;
+    }
+
+    .promo-media video,
+    .promo-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+    }
+
+    .promo-media figure {
+      margin: 0;
+    }
+
+    .promo-media figcaption {
+      margin-top: 10px;
+      color: #d6edf2;
+      font-size: 0.92rem;
+    }
+
+    .template {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .faq details {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow-wrap: anywhere;
+    }
+
+    .meta-table th,
+    .meta-table td {
+      padding: 14px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .meta-table th {
+      background: var(--panel);
+    }
+
+    footer {
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+    }
+
+    footer p {
+      color: #c9d2df;
+    }
+
+    @media (max-width: 760px) {
+      header,
+      section,
+      footer {
+        padding: 48px 5%;
+      }
+
+      .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 5%;
+      }
+
+      .hero-content {
+        padding-top: 108px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .value,
+      .template,
+      .promo-media {
+        grid-template-columns: 1fr;
+      }
+
+      .promo-media video,
+      .promo-media img {
+        min-height: 240px;
+      }
+
+      .phone-showcase {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1900&q=85">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-person-using-a-smartphone-3443-large.mp4" type="video/mp4">
+    </video>
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="brand">VoltEdge</div>
+      <div class="nav-links">
+        <a href="#featured-products">Phones</a>
+        <a href="#categories">Categories</a>
+        <a href="#product-template">Deals</a>
+        <a href="#support">Support</a>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">Mobile phone event</p>
+      <h1>Flagship smartphones, real savings, ready to ship.</h1>
+      <p>Shop 5G smartphones with AI cameras, vivid OLED displays, all-day battery life, fast charging, and secure performance. Compare top models, unlock instant offers, and upgrade with confidence.</p>
+      <ul class="offer-strip">
+        <li>Up to 35% off selected phones</li>
+        <li>Free express delivery</li>
+        <li>Trade-in support available</li>
+        <li>Warranty-backed devices</li>
+      </ul>
+      <div class="button-row">
+        <a class="btn" href="#featured-products">Shop Smartphones</a>
+        <a class="btn secondary" href="#categories">Compare Models</a>
+      </div>
+      <div class="phone-showcase" aria-label="Featured phone offers">
+        <article class="phone-tile">
+          <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=640&q=85" alt="Modern smartphone display close up">
+          <h3>Pro Camera Phones</h3>
+          <p>AI photo tools, night video, and creator-ready storage.</p>
+        </article>
+        <article class="phone-tile">
+          <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=640&q=85" alt="Premium smartphone on a clean surface">
+          <h3>Everyday 5G Value</h3>
+          <p>Fast performance, bright screens, and long battery life.</p>
+        </article>
+        <article class="phone-tile">
+          <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=640&q=85" alt="Person holding a smartphone">
+          <h3>Easy Upgrade</h3>
+          <p>Unlocked phones, secure checkout, and quick setup help.</p>
+        </article>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="band">
+      <div class="value">
+        <div>
+          <p class="eyebrow">Brand value proposition</p>
+          <h2>Reliable innovation without the premium-brand guesswork.</h2>
+          <p>VoltEdge Electronics brings together the latest consumer technology, expert curation, and customer-first support so you can choose devices with confidence. Every product is selected for real-world performance, long-term reliability, secure connectivity, and outstanding value.</p>
+        </div>
+        <ul class="list">
+          <li><strong>Performance that keeps up:</strong> powerful processors, vivid displays, responsive controls, and durable hardware for demanding days.</li>
+          <li><strong>Technology made practical:</strong> AI-ready features, fast charging, seamless ecosystems, and smart automation that simplify daily routines.</li>
+          <li><strong>Confidence after checkout:</strong> transparent specs, secure payments, dependable warranties, and support from people who understand tech.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="featured-products">
+      <div class="section-intro">
+        <p class="eyebrow">Featured products</p>
+        <h2>Top-rated tech built for how you live now.</h2>
+        <p>Upgrade your setup with customer-favorite electronics engineered for speed, clarity, comfort, and connected convenience.</p>
+      </div>
+      <div class="grid">
+        <article class="card product-card">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85" alt="Modern smartphone with a bright display">
+          <div class="card-content">
+            <h3>AI-Ready Smartphones</h3>
+            <p>Capture sharper photos, stream in vivid detail, and multitask with smooth 5G performance. Perfect for creators, commuters, and everyday users who want premium features at a smart price.</p>
+            <a class="btn" href="#product-template">Shop Smartphones</a>
+          </div>
+        </article>
+        <article class="card product-card">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85" alt="Open laptop on a clean desk">
+          <div class="card-content">
+            <h3>Ultra-Fast Laptops</h3>
+            <p>Power through work, school, design, and entertainment with lightweight laptops featuring long battery life, crisp displays, advanced cooling, and secure productivity tools.</p>
+            <a class="btn" href="#product-template">Shop Laptops</a>
+          </div>
+        </article>
+        <article class="card product-card">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Premium over-ear headphones">
+          <div class="card-content">
+            <h3>Immersive Audio Gear</h3>
+            <p>Hear every call, playlist, podcast, and game with noise cancellation, rich bass, low-latency wireless performance, and all-day comfort.</p>
+            <a class="btn" href="#product-template">Shop Audio</a>
+          </div>
+        </article>
+        <article class="card product-card">
+          <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=85" alt="Smart home speaker in a modern living space">
+          <div class="card-content">
+            <h3>Smart Home Essentials</h3>
+            <p>Control lighting, security, climate, and entertainment from one connected ecosystem with devices designed for convenience, safety, and energy efficiency.</p>
+            <a class="btn" href="#product-template">Shop Smart Home</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories" class="band">
+      <div class="section-intro">
+        <p class="eyebrow">Category descriptions</p>
+        <h2>Find the right device for every moment.</h2>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Smartphones</h3>
+          <p>Shop unlocked and carrier-ready smartphones with 5G connectivity, AI photo tools, bright OLED displays, fast charging, strong battery life, and secure mobile performance.</p>
+        </article>
+        <article class="card">
+          <h3>Laptops</h3>
+          <p>Explore laptops for business, gaming, school, and creative work, including thin-and-light notebooks, powerful workstations, and value-packed everyday computers.</p>
+        </article>
+        <article class="card">
+          <h3>Tablets</h3>
+          <p>Browse tablets for streaming, sketching, studying, video calls, and mobile productivity, with responsive touchscreens, keyboard support, and portable battery life.</p>
+        </article>
+        <article class="card">
+          <h3>Smart Home Devices</h3>
+          <p>Build a smarter home with voice assistants, security cameras, smart plugs, lighting, sensors, routers, and connected appliances that make routines easier.</p>
+        </article>
+        <article class="card">
+          <h3>Audio Equipment</h3>
+          <p>Discover wireless earbuds, headphones, speakers, soundbars, and microphones built for powerful sound, clear calls, noise control, and flexible listening.</p>
+        </article>
+        <article class="card">
+          <h3>Gaming Accessories</h3>
+          <p>Level up with responsive controllers, mechanical keyboards, precision mice, headsets, webcams, chargers, docks, and accessories made for competitive play.</p>
+        </article>
+        <article class="card">
+          <h3>Wearable Technology</h3>
+          <p>Track fitness, health, sleep, notifications, and navigation with smartwatches and fitness bands that pair sleek design with practical everyday insights.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-intro">
+        <p class="eyebrow">About us</p>
+        <h2>Technology should feel exciting, useful, and easy to trust.</h2>
+      </div>
+      <p>VoltEdge Electronics was built for shoppers who want better devices without confusing jargon or inflated promises. We curate smartphones, laptops, tablets, smart home devices, audio equipment, gaming accessories, and wearable technology from trusted manufacturers, then present the details clearly so you can compare with confidence.</p>
+      <p>Our mission is simple: help every customer find reliable electronics that improve the way they work, learn, play, connect, and relax. From powerful specs for tech enthusiasts to practical features for busy households, we focus on quality, performance, warranty confidence, and value you can feel every day.</p>
+      <p>Whether you are upgrading your phone, building a smarter home, refreshing your office setup, or choosing your first gaming accessories, our team is here with transparent recommendations, secure checkout, fast delivery, and responsive support.</p>
+    </section>
+
+    <section class="promo">
+      <p class="eyebrow">Limited-time promotion</p>
+      <h2>Upgrade your tech stack and save up to 35% today.</h2>
+      <p>Bundle smartphones, laptops, audio gear, smart home devices, and wearable technology for exclusive savings, fast shipping, and support that helps you get set up quickly.</p>
+      <a class="btn" href="#featured-products">Shop the Sale</a>
+      <div class="promo-media" aria-label="Electronics shopping banner media">
+        <figure>
+          <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1100&q=85">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-working-on-her-laptop-308-large.mp4" type="video/mp4">
+          </video>
+          <figcaption>Real-life tech in use: laptops, mobile devices, and connected accessories.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=85" alt="Person using a laptop with smartphone and electronics on a desk">
+          <figcaption>Matching lifestyle image for a realistic consumer electronics shopping experience.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="product-template">
+      <div class="section-intro">
+        <p class="eyebrow">Product page template copy</p>
+        <h2>[Product Name]: premium performance for modern life.</h2>
+        <p>Meet [Product Name], a powerful [product category] designed for customers who want speed, reliability, intuitive features, and long-lasting value in one sleek device.</p>
+      </div>
+      <div class="template">
+        <div class="card">
+          <h3>Product overview</h3>
+          <p>Built with [key technology], [Product Name] helps you move faster, stay connected, and enjoy a more seamless digital experience. From work calls and creative projects to streaming, gaming, and daily tasks, it delivers the performance you need without unnecessary complexity.</p>
+          <p><strong>Best for:</strong> [target user], everyday multitasking, entertainment, connected homes, remote work, travel, and productivity.</p>
+        </div>
+        <div class="card">
+          <h3>Key benefits</h3>
+          <ul>
+            <li>Fast, responsive performance powered by [processor/chipset].</li>
+            <li>Brilliant visuals with [display feature] for work and entertainment.</li>
+            <li>Reliable battery life and fast charging for busy schedules.</li>
+            <li>Secure connectivity with [Wi-Fi 6/6E/7, Bluetooth, 5G, or ecosystem feature].</li>
+            <li>Durable design backed by warranty support and easy setup.</li>
+          </ul>
+          <a class="btn" href="#featured-products">Add to Cart</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="faq band">
+      <div class="section-intro">
+        <p class="eyebrow">FAQ</p>
+        <h2>Helpful answers before you buy.</h2>
+      </div>
+      <details>
+        <summary>How do I choose the best smartphone, laptop, or tablet?</summary>
+        <p>Start with how you use it most: work, gaming, school, travel, photography, streaming, or family sharing. Compare processor performance, memory, storage, battery life, display quality, connectivity, and warranty coverage.</p>
+      </details>
+      <details>
+        <summary>Are your smart home devices compatible with major platforms?</summary>
+        <p>Many of our smart home devices work with popular voice assistants, mobile apps, and connected home ecosystems. Check each product page for compatibility details before purchase.</p>
+      </details>
+      <details>
+        <summary>Do gaming accessories improve performance?</summary>
+        <p>The right gaming headset, keyboard, mouse, controller, or monitor accessory can improve comfort, response time, audio awareness, and overall control during long play sessions.</p>
+      </details>
+      <details>
+        <summary>What makes wearable technology useful every day?</summary>
+        <p>Smartwatches and fitness trackers help you monitor activity, sleep, notifications, workouts, navigation, and wellness trends from your wrist, making them practical for fitness and daily productivity.</p>
+      </details>
+      <details>
+        <summary>Do you offer warranties and customer support?</summary>
+        <p>Yes. Warranty terms vary by product, and our support team can help with product questions, setup guidance, order updates, and returns.</p>
+      </details>
+    </section>
+
+    <section>
+      <div class="section-intro">
+        <p class="eyebrow">Email welcome message</p>
+        <h2>Subject: Welcome to smarter shopping at VoltEdge Electronics</h2>
+      </div>
+      <div class="card">
+        <p>Hi [First Name],</p>
+        <p>Welcome to VoltEdge Electronics. You are now connected to the latest smartphones, laptops, tablets, smart home devices, audio gear, gaming accessories, and wearable technology, all selected for quality, performance, reliability, and everyday value.</p>
+        <p>As a subscriber, you will get early access to new arrivals, exclusive electronics deals, expert buying guides, and product recommendations that help you upgrade with confidence.</p>
+        <p><strong>Ready to find your next device?</strong> Shop our newest tech and discover smarter ways to work, play, listen, game, and stay connected.</p>
+        <a class="btn" href="#featured-products">Start Shopping</a>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="section-intro">
+        <p class="eyebrow">SEO metadata</p>
+        <h2>Meta titles and descriptions for key pages.</h2>
+      </div>
+      <table class="meta-table">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Meta Title</th>
+            <th>Meta Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Homepage</td>
+            <td>VoltEdge Electronics | Smartphones, Laptops, Smart Home & Audio</td>
+            <td>Shop consumer electronics including smartphones, laptops, tablets, smart home devices, audio equipment, gaming accessories, and wearable technology.</td>
+          </tr>
+          <tr>
+            <td>Smartphones</td>
+            <td>Shop Smartphones | 5G Phones, AI Cameras & Fast Charging</td>
+            <td>Compare the latest smartphones with 5G performance, AI camera features, bright displays, long battery life, and secure mobile technology.</td>
+          </tr>
+          <tr>
+            <td>Laptops</td>
+            <td>Shop Laptops | Gaming, Business, Student & Everyday Computers</td>
+            <td>Find powerful laptops for work, school, gaming, and creative projects with fast processors, vivid displays, reliable storage, and strong battery life.</td>
+          </tr>
+          <tr>
+            <td>Smart Home</td>
+            <td>Smart Home Devices | Security, Lighting, Speakers & Automation</td>
+            <td>Upgrade your home with smart security cameras, voice assistants, lighting, plugs, sensors, and connected devices for comfort and control.</td>
+          </tr>
+          <tr>
+            <td>Audio</td>
+            <td>Audio Equipment | Wireless Earbuds, Headphones & Speakers</td>
+            <td>Experience immersive sound with wireless earbuds, noise-canceling headphones, portable speakers, soundbars, and audio accessories.</td>
+          </tr>
+          <tr>
+            <td>Gaming Accessories</td>
+            <td>Gaming Accessories | Headsets, Keyboards, Controllers & Mice</td>
+            <td>Shop gaming accessories built for speed, comfort, precision, and immersive play, including headsets, keyboards, mice, controllers, and docks.</td>
+          </tr>
+          <tr>
+            <td>Wearables</td>
+            <td>Wearable Technology | Smartwatches & Fitness Trackers</td>
+            <td>Track health, activity, sleep, notifications, and workouts with smartwatches and fitness wearables designed for everyday performance.</td>
+          </tr>
+          <tr>
+            <td>About Us</td>
+            <td>About VoltEdge Electronics | Trusted Consumer Electronics Store</td>
+            <td>Learn how VoltEdge Electronics helps customers choose reliable smartphones, laptops, smart home devices, audio gear, gaming accessories, and wearables.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Ready to upgrade?</h2>
+    <p>Shop reliable consumer electronics built for performance, connection, entertainment, and everyday value.</p>
+    <a class="btn" href="#featured-products">Explore VoltEdge Electronics</a>
+  </footer>
+</body>
+</html>
