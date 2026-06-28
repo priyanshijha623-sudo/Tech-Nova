@@ -64,17 +64,18 @@
     }
 
     .site-nav {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 2;
+      z-index: 999;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding: 18px 7%;
-      background: rgba(255, 255, 255, 0.92);
+      padding: 18px 6%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(18px);
       color: var(--ink);
       box-shadow: 0 1px 18px rgba(0, 0, 0, 0.08);
     }
@@ -413,26 +414,30 @@
   </style>
 </head>
 <body>
- <header class="hero">
+<header class="hero">
 
-    <!-- Navigation -->
+    <!-- Top Navigation -->
     <nav class="site-nav">
-        <div class="brand">⚡ VoltEdge</div>
+
+        <div class="brand">
+            ⚡ VoltEdge
+        </div>
 
         <div class="search-box">
-            <input type="text" placeholder="Search for smartphones, laptops, TVs...">
+            <input type="text" placeholder="Search Smartphones, Laptops, TVs, Headphones...">
         </div>
 
         <div class="nav-icons">
-            <span>👤</span>
-            <span>🛒</span>
+            <span>👤 Account</span>
+            <span>🛒 Cart</span>
         </div>
+
     </nav>
 
     <!-- Delivery Bar -->
     <div class="location-bar">
-        <span>📍 Deliver to Patna</span>
-        <a href="#">Change</a>
+        <span>📍 Deliver to Patna, Bihar 800001</span>
+        <a href="#">Change Location</a>
     </div>
 
     <!-- Hero Banner -->
@@ -441,35 +446,40 @@
         <div class="hero-left">
 
             <span class="offer-tag">
-                PREMIUM ELECTRONICS STORE
+                🔥 BIGGEST ELECTRONICS SALE 2026
             </span>
 
             <h1>
-                Experience the Future
-                <br>
-                of Consumer Electronics
+                Upgrade Your Digital Lifestyle
             </h1>
 
             <p>
-                Shop Premium Smartphones,
-                Laptops, Tablets,
-                Smart TVs,
-                Gaming Devices,
-                Smartwatches,
-                Audio Accessories
-                and much more
-                from the world's leading brands.
+                Discover premium smartphones, laptops, gaming devices,
+                smart TVs, smartwatches, audio accessories and home appliances
+                from Apple, Samsung, Sony, Dell, HP, Lenovo, ASUS, LG and many more.
             </p>
 
             <div class="hero-buttons">
 
                 <a href="#featured-products" class="btn">
-                    Shop Now
+                    Shop Now →
                 </a>
 
                 <a href="#categories" class="btn secondary">
-                    Explore Categories
+                    Browse Categories
                 </a>
+
+            </div>
+
+            <div class="offer-strip">
+
+                <span>🚚 Free Delivery</span>
+
+                <span>💳 No Cost EMI</span>
+
+                <span>🛡️ 2-Year Warranty</span>
+
+                <span>⭐ 4.8 Customer Rating</span>
 
             </div>
 
@@ -478,14 +488,14 @@
         <div class="hero-right">
 
             <img
-            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80">
+                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=80"
+                alt="Premium Smartphone">
 
         </div>
 
     </div>
 
 </header>
-
   <main>
     <section class="band">
       <div class="value">
