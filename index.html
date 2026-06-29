@@ -409,99 +409,74 @@ margin-bottom:40px;
 }
 
 .hero-image{
-
-position:relative;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-circle{
-
-width:520px;
-
-height:520px;
-
-border-radius:50%;
-
-background:linear-gradient(135deg,#fff4eb,#ffe1c6);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-animation:float 5s ease-in-out infinite;
-
-box-shadow:var(--shadow2);
-
+    width:520px;
+    height:520px;
+    border-radius:50%;
+    overflow:hidden;               /* Important */
+    background:linear-gradient(135deg,#fff4eb,#ffe1c6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:float 5s ease-in-out infinite;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+    position:relative;
 }
 
 .hero-circle img{
+    width:100%;
+    height:100%;
+    object-fit:contain;            /* Use 'cover' if you want full circle */
+    object-position:center;
+    display:block;
+    transition:.4s ease;
+}
 
-width:85%;
-
+.hero-circle:hover img{
+    transform:scale(1.05);
 }
 
 @keyframes float{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-18px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-18px);
+    }
+    100%{
+        transform:translateY(0);
+    }
 }
 
 .hero-card{
-
-position:absolute;
-
-background:white;
-
-padding:18px;
-
-border-radius:18px;
-
-box-shadow:var(--shadow);
-
-font-weight:600;
-
-animation:float 4s infinite;
-
+    position:absolute;
+    background:#fff;
+    padding:16px 22px;
+    border-radius:16px;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+    font-weight:600;
+    z-index:2;
 }
 
 .card1{
-
-top:50px;
-
-left:0;
-
+    top:50px;
+    left:-40px;
 }
 
 .card2{
-
-right:20px;
-
-bottom:30px;
-
+    right:-40px;
+    bottom:40px;
+}
+.hero-circle img{
+    width:90%;
+    height:90%;
+    object-fit:contain;
 }
 
 /******************************
@@ -1585,7 +1560,7 @@ Explore Products
 
 <div class="hero-circle">
 
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900" alt="Electronics">
+<img src="banner_image.png" alt="Electronics">
 
 </div>
 
